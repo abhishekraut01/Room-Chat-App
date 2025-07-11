@@ -1,0 +1,24 @@
+{
+  "name": "chat-app-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Production-grade chat application using Turborepo",
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "dev:web": "turbo dev --filter=web",
+    "dev:server": "turbo dev --filter=server",
+    "lint": "turbo lint",
+    "clean": "turbo clean",
+    "type-check": "turbo type-check"
+  },
+  "devDependencies": {
+    "@turbo/gen": "^1.12.4",
+    "turbo": "^1.12.4",
+    "prettier": "^3.2.5"
+  },
+  "packageManager": "pnpm@9.0.0",
+  "engines": {
+    "node": ">=18"
+  }
+}
