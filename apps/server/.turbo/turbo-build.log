@@ -1,0 +1,19 @@
+
+> server@0.1.0 prebuild C:\Users\abhis\OneDrive\Desktop\RoomChatApp\apps\server
+> npm run type-check
+
+
+> server@0.1.0 type-check
+> tsc --noEmit
+
+
+> server@0.1.0 build C:\Users\abhis\OneDrive\Desktop\RoomChatApp\apps\server
+> npm run clean && tsc
+
+
+> server@0.1.0 clean
+> rimraf dist
+
+'rimraf' is not recognized as an internal or external command,
+operable program or batch file.
+ ELIFECYCLE  Command failed with exit code 1.

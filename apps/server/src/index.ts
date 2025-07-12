@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Express } from 'express';
 import { createServer } from 'http';
 import { Server as SocketIOServer } from 'socket.io';
 import cors from 'cors';
@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3001;
 const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:3000';
 
 // Create Express app
-const app = express();
+const app: Express = express();
 const server = createServer(app);
 
 // Configure CORS

@@ -2,8 +2,12 @@
   "extends": "@repo/typescript-config/node.json",
   "include": ["src/**/*"],
   "compilerOptions": {
-      "outDir": "./dist",
+    "outDir": "./dist",
     "rootDir": "./src",
+    "sourceMap": true,
+    "removeComments": true,
+    "declaration": true,
+    "declarationMap": true
   },
   "exclude": ["node_modules", "dist"]
 }

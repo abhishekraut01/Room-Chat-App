@@ -1,8 +1,8 @@
 import { Router, Request, Response } from 'express';
 import { RoomService } from '../services/room-service';
 
-export const createStatsRouter = (roomService: RoomService) => {
-  const router = Router();
+export const createStatsRouter = (roomService: RoomService): Router => {
+  const router: Router = Router();
 
   /**
    * Get server statistics
