@@ -5,9 +5,14 @@
   "description": "Production-grade chat application using Turborepo",
   "scripts": {
     "build": "turbo build",
+    "build:server": "turbo build --filter=server",
+    "build:web": "turbo build --filter=web",
+    "build:prod": "turbo build:prod",
     "dev": "turbo dev",
     "dev:web": "turbo dev --filter=web",
     "dev:server": "turbo dev --filter=server",
+    "start:server": "turbo start --filter=server",
+    "start:prod": "turbo start:prod --filter=server",
     "lint": "turbo lint",
     "clean": "turbo clean",
     "type-check": "turbo type-check"

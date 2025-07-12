@@ -27,6 +27,7 @@
     "@types/uuid": "^9.0.7",
     "@types/node": "^20.11.16",
     "tsx": "^4.7.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "rimraf": "^5.0.5"
   }
 }
