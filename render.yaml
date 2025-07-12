@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: roomchatapp-server
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build:server
+    startCommand: cd apps/server && node dist/index.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CLIENT_URL
+        value: https://your-frontend-url.vercel.app
+    autoDeploy: false

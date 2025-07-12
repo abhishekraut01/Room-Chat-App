@@ -10,17 +10,24 @@ const cors_1 = __importDefault(require("cors"));
 const app_controller_1 = require("./controllers/app-controller");
 const PORT = process.env.PORT || 3001;
 const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:3000';
+const PRODUCTION_URLS = [
+    'https://your-app-name.vercel.app',
+    'https://your-custom-domain.com',
+    CLIENT_URL,
+    'http://localhost:3000',
+    'http://localhost:3001'
+];
 const app = (0, express_1.default)();
 const server = (0, http_1.createServer)(app);
 app.use((0, cors_1.default)({
-    origin: [CLIENT_URL, 'http://localhost:3000'],
+    origin: PRODUCTION_URLS,
     methods: ['GET', 'POST'],
     credentials: true,
 }));
 app.use(express_1.default.json());
 const io = new socket_io_1.Server(server, {
     cors: {
-        origin: [CLIENT_URL, 'http://localhost:3000'],
+        origin: PRODUCTION_URLS,
         methods: ['GET', 'POST'],
         credentials: true,
     },
@@ -31,26 +38,28 @@ app.use((err, req, res, next) => {
     console.error('Express error:', err);
     res.status(500).json({ error: 'Internal server error' });
 });
-server.listen(PORT, () => {
-    console.log(`🚀 Chat server running on port ${PORT}`);
-    console.log(`📡 WebSocket server ready for connections`);
-    console.log(`🌐 Accepting connections from: ${CLIENT_URL}`);
-    console.log(`📊 Health check: http://localhost:${PORT}/api/health`);
-    console.log(`📈 Stats endpoint: http://localhost:${PORT}/api/stats`);
-});
-process.on('SIGTERM', () => {
-    console.log('SIGTERM received, shutting down gracefully');
-    server.close(() => {
-        console.log('Server closed');
-        process.exit(0);
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+    server.listen(PORT, () => {
+        console.log(`🚀 Chat server running on port ${PORT}`);
+        console.log(`📡 WebSocket server ready for connections`);
+        console.log(`🌐 Accepting connections from: ${CLIENT_URL}`);
+        console.log(`📊 Health check: http://localhost:${PORT}/api/health`);
+        console.log(`📈 Stats endpoint: http://localhost:${PORT}/api/stats`);
     });
-});
-process.on('SIGINT', () => {
-    console.log('SIGINT received, shutting down gracefully');
-    server.close(() => {
-        console.log('Server closed');
-        process.exit(0);
+    process.on('SIGTERM', () => {
+        console.log('SIGTERM received, shutting down gracefully');
+        server.close(() => {
+            console.log('Server closed');
+            process.exit(0);
+        });
     });
-});
+    process.on('SIGINT', () => {
+        console.log('SIGINT received, shutting down gracefully');
+        server.close(() => {
+            console.log('Server closed');
+            process.exit(0);
+        });
+    });
+}
 exports.default = app;
 //# sourceMappingURL=index.js.map
