@@ -1,30 +1,14 @@
 {
   "version": 2,
-  "name": "roomchatapp",
-  "builds": [
-    {
-      "src": "apps/server/dist/index.js",
-      "use": "@vercel/node",
-      "config": {
-        "maxLambdaSize": "50mb"
-      }
+  "name": "roomchatapp-frontend",
+  "buildCommand": "npm run build:web",
+  "outputDirectory": "apps/web/.next",
+  "installCommand": "pnpm install",
+  "framework": "nextjs",
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD ./apps/web/",
+  "functions": {
+    "apps/web/app/**": {
+      "runtime": "nodejs18.x"
     }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "apps/server/dist/index.js"
-    },
-    {
-      "src": "/socket.io/(.*)",
-      "dest": "apps/server/dist/index.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "apps/server/dist/index.js"
-    }
-  ],
-  "env": {
-    "NODE_ENV": "production"
   }
 }
