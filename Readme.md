@@ -1,11 +1,69 @@
-# Production Build Guide
+# 🚀 RoomChatApp - Real-Time Chat Application
 
-## Overview
-This guide covers building the chat application for production deployment. The server is built with TypeScript and compiled to JavaScript in the `dist` directory.
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![Socket.io](https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socketdotio&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-## Build Status
+## 📋 Overview
+A modern, production-ready real-time chat application built with TypeScript, featuring multiple chat rooms, real-time messaging, and a beautiful UI. Built as a monorepo using Turborepo for optimal development experience and deployment.
+
+## ✨ Features
+
+### 🔥 Core Features
+- **Real-time messaging** with Socket.IO
+- **Multiple chat rooms** - Create or join any room
+- **Live participant tracking** - See who's online
+- **Message history** - Persistent chat history per room
+- **Responsive design** - Works on desktop and mobile
+- **Dark/Light theme** support
+- **User-friendly interface** with modern UI components
+
+### 🛠️ Technical Features
+- **TypeScript** for type safety
+- **Monorepo architecture** with Turborepo
+- **Production-ready** with proper error handling
+- **Health monitoring** with built-in endpoints
+- **Graceful shutdowns** and connection management
+- **CORS configuration** for secure cross-origin requests
+- **Message rate limiting** (100 messages per room)
+- **Automatic reconnection** handling
+
+## 🏗️ Tech Stack
+
+### Frontend (Web App)
+- **Framework**: Next.js 13.5.1 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS + shadcn/ui components
+- **State Management**: React Hooks
+- **Real-time**: Socket.IO Client
+- **Animations**: Framer Motion
+- **Forms**: React Hook Form + Zod validation
+- **Notifications**: Sonner (toast notifications)
+- **Theme**: next-themes for dark/light mode
+
+### Backend (Server)
+- **Runtime**: Node.js 18+
+- **Framework**: Express.js
+- **Language**: TypeScript
+- **Real-time**: Socket.IO Server
+- **CORS**: cors middleware
+- **ID Generation**: uuid
+- **Process Management**: Graceful shutdown handling
+
+### Development Tools
+- **Monorepo**: Turborepo
+- **Package Manager**: pnpm
+- **Linting**: ESLint
+- **Type Checking**: TypeScript compiler
+- **Build System**: Native TypeScript compiler + Next.js
+
+## 🚀 Build Status
 ✅ **Server Build**: Working correctly
-⚠️ **Web Build**: Has dependency issues (see troubleshooting section)
+✅ **Web Build**: Working correctly
 
 ## Quick Start - Server Only
 
